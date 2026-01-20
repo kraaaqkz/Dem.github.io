@@ -1,23 +1,60 @@
-
-
-
-body{
-  background-color: #d28cb4;
+/* Фон с градиентом и снежинками */
+body {
+  background: linear-gradient(135deg, #e0f7fa, #ffffff, #b3e5fc);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   margin-left: 20%;
   margin-right: 20%;
   border: 2px dotted black;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   font-family: sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
+
+/* Плавная анимация фона */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Стили для снежинок */
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: #fff;
+  font-size: 24px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  user-select: none;
+  z-index: -1;
+  animation: fall linear forwards;
+}
+
+/* Анимация падения снежинок */
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(360deg);
+  }
+}
+
+/* Ваши существующие стили */
 blockquote.q {
   color: #D4AF67;
   border-left: 4px solid #8B0000;
   font-style: italic;
 }
+
 @font-face {
   font-family: "Pudelinka";
   src: url("fonts/pudelinka.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-p.quote {font-family: "Pudelinka", cursive;}
+
+p.quote {
+  font-family: "Pudelinka", cursive;
+}
+
+
