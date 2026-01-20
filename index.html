@@ -137,6 +137,54 @@
     <p> В реальных системах используются очень большие простые числа (сотни цифр)!</p>
   </footer>
 
+<body>
+  <h1> RSA: Шифрование и расшифровка сообщения</h1>
+  <p>Учебный пример с маленькими числами для понимания принципа работы RSA.</p>
+
+  <div class="card">
+    <h2> Исходные данные</h2>
+    <ul>
+      <li>Простые числа: <code>p = 3</code>, <code>q = 5</code></li>
+      <li>Модуль: <code>n = p × q = 15</code></li>
+      <li>Функция Эйлера: <code>φ(n) = (p−1)(q−1) = 8</code></li>
+      <li>Открытая экспонента: <code>e = 3</code></li>
+      <li>Закрытая экспонента: <code>d = 3</code></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2> Шифрование сообщения</h2>
+    <p>Пусть наше сообщение — число <code>m = 2</code> (например, «2» означает «анализ готов»).</p>
+    <p><strong>Условие:</strong> <code>m &lt; n</code> → <code>2 &lt; 15</code> → <span class="success"></span></p>
+    <p>Формула шифрования:</p>
+    <p><code>C = m<sup>e</sup> mod n = 2<sup>3</sup> mod 15</code></p>
+    <p>Вычислим:</p>
+    <p><code>2<sup>3</sup> = 8</code> → <code>8 mod 15 = <span class="highlight">8</span></code></p>
+    <p>→ <strong>Шифротекст: C = 8</strong></p>
+  </div>
+
+  <div class="card">
+    <h2> Расшифровка сообщения</h2>
+    <p>Используем закрытый ключ <code>(n, d) = (15, 3)</code>.</p>
+    <p>Формула расшифровки:</p>
+    <p><code>M = C<sup>d</sup> mod n = 8<sup>3</sup> mod 15</code></p>
+    <p>Вычислим:</p>
+    <p><code>8<sup>3</sup> = 512</code> → <code>512 mod 15 = <span class="highlight">2</span></code></p>
+    <p>→ <strong>Расшифрованное сообщение: M = 2</strong></p>
+    <p><span class="success"> Исходное сообщение восстановлено!</span></p>
+  </div>
+
+  <div class="note">
+    <strong> В реальных системах:</strong><br>
+    Число <code>n</code> состоит из <strong>600+ десятичных цифр</strong> (около 2048 бит), что делает подбор ключей вычислительно невозможным даже для самых мощных компьютеров.
+    <br>Этот пример использует tiny-числа только для обучения!
+  </div>
+
+  <footer style="margin-top: 40px; text-align: center; color: #7f8c8d; font-size: 0.9em;">
+    <p>Образовательный проект | Алгоритм RSA | Пример шифрования и расшифровки</p>
+  </footer>
+</body>
+</html>
 </body>
 </html>
        
