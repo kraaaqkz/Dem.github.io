@@ -1,8 +1,11 @@
-/* Фон с градиентом и снежинками */
+/* Фон с сине-голубо-белым градиентом */
 body {
-  background: linear-gradient(135deg, #e0f7fa, #ffffff, #b3e5fc);
+  background: linear-gradient(135deg, #e3f2fd, #ffffff, #bbdefb);
+  /* #e3f2fd — очень светлый голубой (Material Blue 50)
+     #ffffff — белый
+     #bbdefb — нежно-голубой (Material Blue 100) */
   background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  animation: gradientBG 20s ease infinite;
   margin-left: 20%;
   margin-right: 20%;
   border: 2px dotted black;
@@ -13,7 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Плавная анимация фона */
+/* Плавная анимация градиента */
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -26,10 +29,11 @@ body {
   top: -20px;
   color: #fff;
   font-size: 24px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
   user-select: none;
   z-index: -1;
   animation: fall linear forwards;
+  opacity: 0.85;
 }
 
 /* Анимация падения снежинок */
@@ -56,5 +60,4 @@ blockquote.q {
 p.quote {
   font-family: "Pudelinka", cursive;
 }
-
 
