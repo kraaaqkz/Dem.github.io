@@ -62,3 +62,31 @@ blockquote.q {
 p.quote {
   font-family: "Pudelinka", cursive;
 }
+/* Стили для блока RSA */
+.rsa-task {
+  margin: 20px 0;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  border-left: 4px solid #89cfff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.rsa-n {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  background-color: #f0f8ff;
+  border: 1px solid #d0e8ff;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;       /* Перенос длинных строк */
+  word-break: break-all;       /* Ломает даже без пробелов */
+  overflow-x: auto;            /* Горизонтальный скролл на малых экранах */
+  color: #2c3e50;
+  max-height: 200px;
+  overflow-y: auto;
+}
