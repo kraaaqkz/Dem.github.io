@@ -157,6 +157,46 @@
         </div>
     </div>
 
+    <!-- 🔍 Новая запись: Тестирование FAQ-бота -->
+    <h2>20 февраля, 2026</h2>
+    <div class="ai-test-post">
+        <div class="test-header">
+            <h3>🤖 Тестирование семантического поиска FAQ</h3>
+            <span class="model-badge">RuBERT + Cosine Similarity</span>
+        </div>
+        
+        <div class="test-result warning">
+            <h4>⚠️ Обнаружено несоответствие:</h4>
+            <div class="query-box">
+                <p><strong>❓ Вопрос пользователя:</strong></p>
+                <code>Сколько ждать мой заказ?</code>
+            </div>
+            <div class="result-box">
+                <p><strong>✅ Найденный вопрос:</strong></p>
+                <code>Как оплатить заказ?</code>
+            </div>
+            <div class="answer-box">
+                <p><strong>💬 Ответ:</strong></p>
+                <p>Мы принимаем оплату банковскими картами, электронными кошельками и наличными при получении.</p>
+            </div>
+            <div class="score-box">
+                <p><strong>📊 Оценка схожести:</strong> <span class="score">0.7442</span></p>
+            </div>
+        </div>
+        
+        <div class="analysis">
+            <h4>🔍 Анализ:</h4>
+            <ul>
+                <li>Модель RuBERT нашла семантическую близость между «ждать заказ» и «оплатить заказ»</li>
+                <li>Оба вопроса содержат слово «заказ», что повлияло на результат</li>
+                <li>Порог доверия <strong>0.74</strong> — пограничный: лучше добавить проверку <code>if sim &lt; 0.8</code></li>
+            </ul>
+            <p><strong>💡 Решение:</strong> Расширить базу FAQ синонимами и добавить пост-обработку:</p>
+            <pre class="code-snippet">if max_similarity < 0.8:
+    return "К сожалению, я не нашёл точного ответа. Попробуйте переформулировать вопрос."</pre>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
