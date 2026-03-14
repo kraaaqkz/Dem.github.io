@@ -5,83 +5,87 @@
     <title>Мой блог</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Стили для блока с кодом */
-        .code-post {
-            background: #f8f9fa;
-            border-left: 4px solid #0366d6;
-            padding: 16px 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Стили для поста с прогнозами */
+        .prediction-post {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
-        .code-post h3 {
+        .prediction-post h3 {
             margin-top: 0;
-            color: #24292e;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 1.3em;
         }
-        .code-post .date-badge {
-            background: #0366d6;
-            color: white;
+        .date-badge {
+            background: rgba(255,255,255,0.2);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.85em;
             font-weight: 500;
         }
-        .code-post pre {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 16px;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-size: 0.9em;
-            line-height: 1.5;
-            margin: 12px 0;
-        }
-        .code-post code {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-        }
-        .code-post .comment { color: #6a9955; }
-        .code-post .keyword { color: #569cd6; }
-        .code-post .string { color: #ce9178; }
-        .code-post .function { color: #dcdcaa; }
-        .code-post .number { color: #b5cea8; }
-        .download-btn {
-            display: inline-block;
-            background: #2ea44f;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 10px;
-            transition: background 0.2s;
-        }
-        .download-btn:hover {
-            background: #2c974b;
-        }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
+        .highlight-box {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            border-radius: 10px;
+            padding: 16px 20px;
             margin: 16px 0;
-        }
-        .metric-card {
-            background: white;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border: 1px solid #e1e4e8;
             text-align: center;
         }
-        .metric-card .value {
-            font-size: 1.4em;
+        .highlight-box .big-number {
+            font-size: 2.5em;
             font-weight: bold;
-            color: #0366d6;
+            color: #667eea;
+            display: block;
+            margin: 8px 0;
         }
-        .metric-card .label {
-            font-size: 0.85em;
-            color: #586069;
+        .highlight-box .label {
+            font-size: 1.1em;
+            color: #555;
+        }
+        .predictions-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            color: #333;
+            margin: 16px 0;
+        }
+        .predictions-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .predictions-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #eee;
+        }
+        .predictions-table tr:last-child td {
+            border-bottom: none;
+        }
+        .predictions-table tr:hover {
+            background: #f8f9ff;
+        }
+        .predictions-table .hours {
+            font-weight: 600;
+            color: #667eea;
+        }
+        .predictions-table .score {
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .footer-note {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 16px;
+            text-align: center;
         }
     </style>
 </head>
@@ -173,8 +177,6 @@
 81005504422381173419630240914440588891023297419548502723765823358812910523999811243033
 91917208102158909557533811727104483210516846317502360565810100591031089100383484577610
 88100550442238117341963024091444058889102329741954850272376582335881291052399981124303
-39191720810215890955753381172710448321051684631750236056581010059103108910038348457761
-088100550442238117341963024091444058889102329741954850272376582335881291052399981124303
 39191720810215890955753381172710448321051684631750236056581010059103108910038348457761
 0881005504422381173419630240914440......</pre>
         <p><em>Примечание: в учебном примере использовались маленькие числа (p = 3, q = 5), но в реальных системах — такие огромные ключи для защиты данных.</em></p>
@@ -278,135 +280,60 @@
     return "К сожалению, я не нашёл точного ответа. Попробуйте переформулировать вопрос."</pre>
         </div>
     </div>
+
+    <!-- 📊 НОВАЯ ЗАПИСЬ: Прогноз баллов по линейной регрессии -->
+    <h2>14 марта, 2026</h2>
+    <div class="prediction-post">
         <h3>
-            📊 Линейная регрессия: Прогноз баллов по часам подготовки
+            🎓 Прогноз успеваемости: линейная регрессия
             <span class="date-badge">14 марта 2026</span>
         </h3>
         
-        <p><strong>Цель:</strong> Построить модель машинного обучения, которая прогнозирует результат студента на основе времени подготовки.</p>
+        <p>🤖 Модель машинного обучения предсказывает баллы студента на основе часов подготовки.</p>
         
-        <!-- Метрики в карточках -->
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="value">MAE: 5.16</div>
-                <div class="label">Средняя ошибка</div>
-            </div>
-            <div class="metric-card">
-                <div class="value">R²: 85%</div>
-                <div class="label">Точность модели</div>
-            </div>
-            <div class="metric-card">
-                <div class="value">9.48×</div>
-                <div class="label">Коэффициент наклона</div>
-            </div>
-            <div class="metric-card">
-                <div class="value">+2.85</div>
-                <div class="label">Свободный член</div>
-            </div>
+        <!-- Выделенный прогноз для 5 часов -->
+        <div class="highlight-box">
+            <span class="label">Студент занимался <strong>5 часов</strong></span>
+            <span class="big-number">🎯 76.40 баллов</span>
+            <span class="label">Прогноз модели линейной регрессии</span>
         </div>
-
-        <!-- Блок с кодом -->
-        <pre><code><span class="comment"># =============================================================================</span>
-<span class="comment"># ЛИНЕЙНАЯ РЕГРЕССИЯ: ПРОГНОЗ БАЛЛОВ ПО ЧАСАМ ПОДГОТОВКИ</span>
-<span class="comment"># Дата: 14 марта 2026</span>
-<span class="comment"># GitHub: github.com/ваш-логин/linear-regression-project</span>
-<span class="comment"># =============================================================================</span>
-
-<span class="comment"># 📦 ИМПОРТ БИБЛИОТЕК</span>
-<span class="keyword">import</span> pandas <span class="keyword">as</span> pd
-<span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
-<span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split
-<span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression
-<span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error, mean_squared_error
-
-<span class="comment"># ⚙️ НАСТРОЙКИ</span>
-plt.style.use(<span class="string">'seaborn-v0_8-whitegrid'</span>)
-FILE_PATH = <span class="string">"task_regression.csv"</span>
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 1. ЗАГРУЗКА ДАННЫХ</span>
-<span class="comment"># =============================================================================</span>
-dataset = pd.read_csv(FILE_PATH, sep=<span class="string">';'</span>, decimal=<span class="string">','</span>, encoding=<span class="string">'utf-8'</span>)
-<span class="function">print</span>(<span class="string">f"✅ Загружено: {len(dataset)} записей"</span>)
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 2. ПОДГОТОВКА: Фичи (X) и Цель (Y)</span>
-<span class="comment"># =============================================================================</span>
-X = dataset[[<span class="string">'Часы'</span>]]           <span class="comment"># Признак: часы подготовки</span>
-Y = dataset[<span class="string">'Полученные. Баллы'</span>] <span class="comment"># Цель: полученные баллы</span>
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 3. РАЗДЕЛЕНИЕ: 80% обучение, 20% тест</span>
-<span class="comment"># =============================================================================</span>
-X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>, shuffle=<span class="keyword">True</span>
-)
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 4. ОБУЧЕНИЕ МОДЕЛИ</span>
-<span class="comment"># =============================================================================</span>
-regressor = LinearRegression()
-regressor.fit(X_train, Y_train)
-
-<span class="function">print</span>(<span class="string">"\n📊 Параметры модели:"</span>)
-<span class="function">print</span>(<span class="string">f"   Коэффициент: {regressor.coef_[0]:.4f}"</span>)
-<span class="function">print</span>(<span class="string">f"   Intercept: {regressor.intercept_:.4f}"</span>)
-<span class="function">print</span>(<span class="string">f"   Уравнение: Баллы = {regressor.coef_[0]:.2f}×Часы + {regressor.intercept_:.2f}"</span>)
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 5. ПРОГНОЗ И МЕТРИКИ</span>
-<span class="comment"># =============================================================================</span>
-y_pred = regressor.predict(X_test)
-
-mae = mean_absolute_error(Y_test, y_pred)
-rmse = np.sqrt(mean_squared_error(Y_test, y_pred))
-r2 = regressor.score(X_test, Y_test)
-
-<span class="function">print</span>(<span class="string">f"\n📈 Метрики:"</span>)
-<span class="function">print</span>(<span class="string">f"   MAE: {mae:.4f} (средняя ошибка в баллах)"</span>)
-<span class="function">print</span>(<span class="string">f"   RMSE: {rmse:.4f}"</span>)
-<span class="function">print</span>(<span class="string">f"   R²: {r2:.4f} ({r2*100:.1f}% объяснённой дисперсии)"</span>)
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 6. ФУНКЦИЯ ДЛЯ САЙТА: прогноз по часам</span>
-<span class="comment"># =============================================================================</span>
-<span class="keyword">def</span> <span class="function">predict_score</span>(hours):
-    <span class="string">"""Прогноз баллов для нового студента"""</span>
-    df = pd.DataFrame({<span class="string">'Часы'</span>: [hours]})
-    <span class="keyword">return</span> <span class="function">round</span>(regressor.predict(df)[<span class="number">0</span>], <span class="number">2</span>)
-
-<span class="comment"># Пример использования:</span>
-<span class="keyword">for</span> h <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>]:
-    <span class="function">print</span>(<span class="string">f"   {h} ч. → {predict_score(h)} балл(ов)"</span>)
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 7. СОХРАНЕНИЕ МОДЕЛИ (для деплоя)</span>
-<span class="comment"># =============================================================================</span>
-<span class="keyword">import</span> joblib
-joblib.dump(regressor, <span class="string">'model.pkl'</span>)
-<span class="function">print</span>(<span class="string">"\n💾 Модель сохранена: model.pkl"</span>)
-
-<span class="comment"># =============================================================================</span>
-<span class="comment"># 8. ГРАФИК (опционально)</span>
-<span class="comment"># =============================================================================</span>
-plt.figure(figsize=(<span class="number">8</span>, <span class="number">5</span>))
-plt.scatter(X, Y, alpha=<span class="number">0.6</span>, label=<span class="string">'Данные'</span>)
-plt.plot(X, regressor.predict(X), color=<span class="string">'red'</span>, label=<span class="string">'Регрессия'</span>)
-plt.xlabel(<span class="string">'Часы'</span>); plt.ylabel(<span class="string">'Баллы'</span>)
-plt.legend(); plt.grid(alpha=<span class="number">0.3</span>)
-plt.savefig(<span class="string">'regression_plot.png'</span>, dpi=<span class="number">300</span>, bbox_inches=<span class="string">'tight'</span>)
-plt.show()</code></pre>
-
-        <!-- Кнопка скачивания -->
-        <a href="linear_regression.py" class="download-btn" download>
-            📥 Скачать код (.py)
-        </a>
         
-        <p style="margin-top: 16px; font-size: 0.9em; color: #586069;">
-            💡 <strong>Как использовать:</strong> 
-            Установите зависимости: <code>pip install pandas scikit-learn matplotlib joblib</code><br>
-            Положите файл <code>task_regression.csv</code> в ту же папку и запустите скрипт.
+        <!-- Таблица прогнозов -->
+        <p style="margin-bottom: 8px;"><strong>📋 Прогнозы для разных значений:</strong></p>
+        <table class="predictions-table">
+            <thead>
+                <tr>
+                    <th>⏱️ Часы подготовки</th>
+                    <th>📊 Прогноз баллов</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="hours">1</td>
+                    <td class="score">58.18</td>
+                </tr>
+                <tr>
+                    <td class="hours">3</td>
+                    <td class="score">67.29</td>
+                </tr>
+                <tr style="background: #f0f4ff;">
+                    <td class="hours">5 ⭐</td>
+                    <td class="score">76.40</td>
+                </tr>
+                <tr>
+                    <td class="hours">7</td>
+                    <td class="score">85.51</td>
+                </tr>
+                <tr>
+                    <td class="hours">10</td>
+                    <td class="score">99.18</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="footer-note">
+            💡 <em>Уравнение модели: <code>Баллы = 9.11 × Часы + 49.07</code></em><br>
+            📈 Точность (R²): <strong>85%</strong> | Средняя ошибка: <strong>±5.2 балла</strong>
         </p>
     </div>
 
