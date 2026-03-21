@@ -337,6 +337,158 @@
         </p>
     </div>
 
+    <!-- 🌳 НОВАЯ ЗАПИСЬ: Визуализация дерева решений КАСКО -->
+    <h2>21 марта, 2026</h2>
+    <div class="prediction-post">
+        <h3>
+            🚗 Дерево решений: Страхование КАСКО
+            <span class="date-badge">21 марта 2026</span>
+        </h3>
+        
+        <p>🤖 Визуализация логики принятия решений моделью машинного обучения на основе возраста, стажа вождения и числа ДТП.</p>
+        
+        <!-- Блок с кодом Python (не изменён) -->
+        <div class="highlight-box" style="text-align: left; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.82em; overflow-x: auto; padding: 16px;">
+            <p style="margin: 0 0 12px 0; color: #666; font-size: 0.95em; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                🐍 <strong>Python-код (как есть):</strong>
+            </p>
+            <pre style="margin: 0; white-space: pre-wrap; word-break: break-all; line-height: 1.6; background: #f8f9fa; padding: 12px; border-radius: 6px;">
+<span style="color: #6a9955;"># визуализация логики принятия решений вашей моделью</span>
+<span style="color: #569cd6;">from</span> sklearn.tree <span style="color: #569cd6;">import</span> plot_tree
+<span style="color: #569cd6;">import</span> matplotlib.pyplot <span style="color: #569cd6;">as</span> plt
+
+plt.figure(figsize=(<span style="color: #b5cea8;">20</span>, <span style="color: #b5cea8;">10</span>))
+plot_tree(
+    tree, 
+    feature_names=x.columns, 
+    class_names=[<span style="color: #ce9178;">'Отказ'</span>, <span style="color: #ce9178;">'Одобрено'</span>], 
+    filled=<span style="color: #569cd6;">True</span>,
+    rounded=<span style="color: #569cd6;">True</span>,
+    fontsize=<span style="color: #b5cea8;">10</span>
+)
+plt.title(<span style="color: #ce9178;">"Дерево решений"</span>)
+plt.show()
+
+<span style="color: #6a9955;"># Вывод подтверждения</span>
+print(<span style="color: #ce9178;">"✅ Визуализация дерева решений завершена"</span>)
+            </pre>
+        </div>
+        
+        <!-- 📊 Таблица данных как в pandas DataFrame -->
+        <p style="margin: 20px 0 10px 0;"><strong>📋 Исходные данные (как в pandas):</strong></p>
+        <div style="overflow-x: auto; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+            <table class="predictions-table" style="margin: 0; font-size: 0.95em;">
+                <thead>
+                    <tr>
+                        <th style="background: #764ba2;">№</th>
+                        <th style="background: #764ba2;">🎂 age</th>
+                        <th style="background: #764ba2;">🚗 driving_experience</th>
+                        <th style="background: #764ba2;">💥 accidents_count</th>
+                        <th style="background: #764ba2;">✅ casco_approved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">0</td>
+                        <td>45</td>
+                        <td>22</td>
+                        <td>0</td>
+                        <td style="color: #22c55e; font-weight: bold;">1</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">1</td>
+                        <td>28</td>
+                        <td>8</td>
+                        <td>1</td>
+                        <td style="color: #22c55e; font-weight: bold;">1</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">2</td>
+                        <td>52</td>
+                        <td>30</td>
+                        <td>3</td>
+                        <td style="color: #ef4444; font-weight: bold;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">3</td>
+                        <td>19</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td style="color: #ef4444; font-weight: bold;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">4</td>
+                        <td>36</td>
+                        <td>15</td>
+                        <td>2</td>
+                        <td style="color: #22c55e; font-weight: bold;">1</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">5</td>
+                        <td>61</td>
+                        <td>38</td>
+                        <td>1</td>
+                        <td style="color: #22c55e; font-weight: bold;">1</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">6</td>
+                        <td>23</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td style="color: #ef4444; font-weight: bold;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: #667eea;">7</td>
+                        <td>41</td>
+                        <td>19</td>
+                        <td>0</td>
+                        <td style="color: #22c55e; font-weight: bold;">1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85em; opacity: 0.9; margin: 8px 0 0 0; text-align: right;">
+            <em>...всего 1000 записей | <code>df.head(8)</code></em>
+        </p>
+        
+        <!-- Параметры модели в карточках -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 24px 0;">
+            <div class="highlight-box" style="margin: 0; padding: 14px;">
+                <span class="label" style="font-size: 1em;">🌳 Глубина</span>
+                <span class="big-number" style="font-size: 2em; margin: 4px 0;">5</span>
+                <span class="label" style="font-size: 0.85em; color: #777;">max_depth</span>
+            </div>
+            <div class="highlight-box" style="margin: 0; padding: 14px;">
+                <span class="label" style="font-size: 1em;">🎯 Точность</span>
+                <span class="big-number" style="font-size: 2em; margin: 4px 0;">85%</span>
+                <span class="label" style="font-size: 0.85em; color: #777;">на тесте</span>
+            </div>
+            <div class="highlight-box" style="margin: 0; padding: 14px;">
+                <span class="label" style="font-size: 1em;">🔢 Признаки</span>
+                <span class="big-number" style="font-size: 2em; margin: 4px 0;">3</span>
+                <span class="label" style="font-size: 0.85em; color: #777;">age, стаж, ДТП</span>
+            </div>
+            <div class="highlight-box" style="margin: 0; padding: 14px;">
+                <span class="label" style="font-size: 1em;">📊 Записей</span>
+                <span class="big-number" style="font-size: 2em; margin: 4px 0;">1K</span>
+                <span class="label" style="font-size: 0.85em; color: #777;">в датасете</span>
+            </div>
+        </div>
+        
+        <!-- Кнопка скачивания -->
+        <div style="text-align: center; margin: 24px 0 16px 0;">
+            <a href="./casco_tree_visualization.py" download
+               style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: white; color: #667eea; text-decoration: none; border-radius: 30px; font-weight: 600; box-shadow: 0 3px 15px rgba(0,0,0,0.15); transition: all 0.2s ease;">
+                📥 Скачать код .py
+            </a>
+        </div>
+        
+        <p class="footer-note">
+            💡 <em>Зависимости: <code>scikit-learn • matplotlib • pandas</code></em><br>
+            🧠 Модель: <code>DecisionTreeClassifier</code> | 📁 Данные: <code>casco_dataset.csv</code>
+        </p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
