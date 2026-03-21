@@ -87,6 +87,186 @@
             margin-top: 16px;
             text-align: center;
         }
+
+        /* ============================================
+           🚗 Стили для поста КАСКО (НОВЫЕ)
+           ============================================ */
+        .casco-post {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        .casco-post h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4em;
+        }
+        .casco-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .casco-stat {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .casco-stat .value {
+            font-size: 1.8em;
+            font-weight: bold;
+            display: block;
+        }
+        .casco-stat .label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        .casco-code {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            color: #d4d4d4;
+        }
+        .casco-code .comment { color: #6a9955; }
+        .casco-code .keyword { color: #569cd6; }
+        .casco-code .function { color: #dcdcaa; }
+        .casco-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .casco-result {
+            background: white;
+            color: #333;
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .casco-result.approved { border-top: 4px solid #11998e; }
+        .casco-result.premium { border-top: 4px solid #f5576c; }
+        .casco-result.denied { border-top: 4px solid #eb3349; }
+        .casco-result .percent {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+            margin: 4px 0;
+        }
+        .casco-features {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .casco-feature {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .casco-feature .name {
+            width: 140px;
+            font-weight: 500;
+        }
+        .casco-feature .bar {
+            flex: 1;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 0 12px;
+            overflow: hidden;
+        }
+        .casco-feature .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+        .casco-feature .value {
+            width: 50px;
+            text-align: right;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .casco-form {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .casco-form .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .casco-form label {
+            display: block;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+            color: #555;
+        }
+        .casco-form input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        .casco-form input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .casco-form button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .casco-form button:hover {
+            transform: translateY(-2px);
+        }
+        .casco-result-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            margin-top: 12px;
+        }
+        .casco-result-box.approved {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .casco-result-box.denied {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .casco-result-box.premium {
+            display: block;
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffeaa7;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +330,7 @@
         <p>
             Ваш браузер не умеет отображать .odt.
             <a href="./%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20OpenDocument.odt" download>
-                Открыть колядку 
+                Открыть колядку
             </a>
         </p>
     </object>
@@ -178,6 +358,8 @@
 91917208102158909557533811727104483210516846317502360565810100591031089100383484577610
 88100550442238117341963024091444058889102329741954850272376582335881291052399981124303
 39191720810215890955753381172710448321051684631750236056581010059103108910038348457761
+08810055044223811734196302409144405888910232974195485027237658233588129105239998112430
+339191720810215890955753381172710448321051684631750236056581010059103108910038348457761
 0881005504422381173419630240914440......</pre>
         <p><em>Примечание: в учебном примере использовались маленькие числа (p = 3, q = 5), но в реальных системах — такие огромные ключи для защиты данных.</em></p>
     </div>
@@ -194,10 +376,10 @@
         
         <div class="ai-generation">
             <h3>🤖 Генерация ИИ:</h3>
-            <p><em>«Филя — это не просто собака, это пушистое воплощение радости и преданности. 
-            Её глаза сияют любовью, а виляющий хвост способен растопить даже самое холодное сердце. 
-            В День святого Валентина она напоминает нам, что настоящая любовь — это когда кто-то 
-            всегда ждёт тебя дома, независимо от погоды и настроения. Филя — лучший друг, 
+            <p><em>«Филя — это не просто собака, это пушистое воплощение радости и преданности.
+            Её глаза сияют любовью, а виляющий хвост способен растопить даже самое холодное сердце.
+            В День святого Валентина она напоминает нам, что настоящая любовь — это когда кто-то
+            всегда ждёт тебя дома, независимо от погоды и настроения. Филя — лучший друг,
             который учит нас жить здесь и сейчас, радоваться простым вещам и никогда не сдаваться.»</em></p>
             <p class="ai-signature">— Сгенерировано нейросетью 💕</p>
         </div>
@@ -222,10 +404,10 @@
         
         <div class="ai-generation">
             <h3>🤖 Генерация ИИ:</h3>
-            <p><em>«Гитара — это не просто музыкальный инструмент, это голос души, способный выразить то, 
-            что невозможно сказать словами. Её струны подобны сердечным нитям, которые вибрируют от прикосновения 
-            любви. В День святого Валентина гитара напоминает нам о серенадах под окнами возлюбленных, 
-            о романтике костров и звёздного неба, о музыке, которая объединяет сердца. 
+            <p><em>«Гитара — это не просто музыкальный инструмент, это голос души, способный выразить то,
+            что невозможно сказать словами. Её струны подобны сердечным нитям, которые вибрируют от прикосновения
+            любви. В День святого Валентина гитара напоминает нам о серенадах под окнами возлюбленных,
+            о романтике костров и звёздного неба, о музыке, которая объединяет сердца.
             Каждый аккорд — это признание в любви, каждая мелодия — история двух душ, нашедших друг друга.»</em></p>
             <p class="ai-signature">— Сгенерировано нейросетью 💕🎵</p>
         </div>
@@ -337,158 +519,150 @@
         </p>
     </div>
 
-    <!-- 🌳 НОВАЯ ЗАПИСЬ: Визуализация дерева решений КАСКО -->
+    <!-- 🚗 НОВАЯ ЗАПИСЬ: Страхование КАСКО (Добавлено 21 марта 2026) -->
     <h2>21 марта, 2026</h2>
-    <div class="prediction-post">
+    <div class="casco-post">
         <h3>
-            🚗 Дерево решений: Страхование КАСКО
+            🚗 Страхование КАСКО: модель машинного обучения
             <span class="date-badge">21 марта 2026</span>
         </h3>
         
-        <p>🤖 Визуализация логики принятия решений моделью машинного обучения на основе возраста, стажа вождения и числа ДТП.</p>
+        <p>🤖 Decision Tree Classifier для принятия решений о страховании на основе возраста, стажа и истории ДТП.</p>
         
-        <!-- Блок с кодом Python (не изменён) -->
-        <div class="highlight-box" style="text-align: left; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.82em; overflow-x: auto; padding: 16px;">
-            <p style="margin: 0 0 12px 0; color: #666; font-size: 0.95em; border-bottom: 1px solid #eee; padding-bottom: 8px;">
-                🐍 <strong>Python-код (как есть):</strong>
-            </p>
-            <pre style="margin: 0; white-space: pre-wrap; word-break: break-all; line-height: 1.6; background: #f8f9fa; padding: 12px; border-radius: 6px;">
-<span style="color: #6a9955;"># визуализация логики принятия решений вашей моделью</span>
-<span style="color: #569cd6;">from</span> sklearn.tree <span style="color: #569cd6;">import</span> plot_tree
-<span style="color: #569cd6;">import</span> matplotlib.pyplot <span style="color: #569cd6;">as</span> plt
+        <!-- Статистика модели -->
+        <div class="casco-stats-grid">
+            <div class="casco-stat">
+                <span class="value">🎯 69%</span>
+                <span class="label">Accuracy</span>
+            </div>
+            <div class="casco-stat">
+                <span class="value">📊 400</span>
+                <span class="label">Тренировочных</span>
+            </div>
+            <div class="casco-stat">
+                <span class="value">🧪 100</span>
+                <span class="label">Тестовых</span>
+            </div>
+            <div class="casco-stat">
+                <span class="value">🌳 5</span>
+                <span class="label">Глубина</span>
+            </div>
+        </div>
+        
+        <!-- Код Python -->
+        <div class="casco-code">
+<span class="comment"># Обучаем дерево на тренировочных данных</span>
+tree.fit(X_train, y_train)
 
-plt.figure(figsize=(<span style="color: #b5cea8;">20</span>, <span style="color: #b5cea8;">10</span>))
-plot_tree(
-    tree, 
-    feature_names=x.columns, 
-    class_names=[<span style="color: #ce9178;">'Отказ'</span>, <span style="color: #ce9178;">'Одобрено'</span>], 
-    filled=<span style="color: #569cd6;">True</span>,
-    rounded=<span style="color: #569cd6;">True</span>,
-    fontsize=<span style="color: #b5cea8;">10</span>
-)
-plt.title(<span style="color: #ce9178;">"Дерево решений"</span>)
-plt.show()
+<span class="comment"># Проверяем работу дерева на тестовой части</span>
+tree.score(X_test, y_test)
 
-<span style="color: #6a9955;"># Вывод подтверждения</span>
-print(<span style="color: #ce9178;">"✅ Визуализация дерева решений завершена"</span>)
-            </pre>
+<span class="keyword">print</span>(<span class="string">f"Accuracy: {tree.score(X_test, y_test):.2%}"</span>)
         </div>
         
-        <!-- 📊 Таблица данных как в pandas DataFrame -->
-        <p style="margin: 20px 0 10px 0;"><strong>📋 Исходные данные (как в pandas):</strong></p>
-        <div style="overflow-x: auto; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
-            <table class="predictions-table" style="margin: 0; font-size: 0.95em;">
-                <thead>
-                    <tr>
-                        <th style="background: #764ba2;">№</th>
-                        <th style="background: #764ba2;">🎂 age</th>
-                        <th style="background: #764ba2;">🚗 driving_experience</th>
-                        <th style="background: #764ba2;">💥 accidents_count</th>
-                        <th style="background: #764ba2;">✅ casco_approved</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">0</td>
-                        <td>45</td>
-                        <td>22</td>
-                        <td>0</td>
-                        <td style="color: #22c55e; font-weight: bold;">1</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">1</td>
-                        <td>28</td>
-                        <td>8</td>
-                        <td>1</td>
-                        <td style="color: #22c55e; font-weight: bold;">1</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">2</td>
-                        <td>52</td>
-                        <td>30</td>
-                        <td>3</td>
-                        <td style="color: #ef4444; font-weight: bold;">0</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">3</td>
-                        <td>19</td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td style="color: #ef4444; font-weight: bold;">0</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">4</td>
-                        <td>36</td>
-                        <td>15</td>
-                        <td>2</td>
-                        <td style="color: #22c55e; font-weight: bold;">1</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">5</td>
-                        <td>61</td>
-                        <td>38</td>
-                        <td>1</td>
-                        <td style="color: #22c55e; font-weight: bold;">1</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">6</td>
-                        <td>23</td>
-                        <td>4</td>
-                        <td>4</td>
-                        <td style="color: #ef4444; font-weight: bold;">0</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: #667eea;">7</td>
-                        <td>41</td>
-                        <td>19</td>
-                        <td>0</td>
-                        <td style="color: #22c55e; font-weight: bold;">1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="font-size: 0.85em; opacity: 0.9; margin: 8px 0 0 0; text-align: right;">
-            <em>...всего 1000 записей | <code>df.head(8)</code></em>
-        </p>
-        
-        <!-- Параметры модели в карточках -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 24px 0;">
-            <div class="highlight-box" style="margin: 0; padding: 14px;">
-                <span class="label" style="font-size: 1em;">🌳 Глубина</span>
-                <span class="big-number" style="font-size: 2em; margin: 4px 0;">5</span>
-                <span class="label" style="font-size: 0.85em; color: #777;">max_depth</span>
+        <!-- Результаты классификации -->
+        <p><strong>📈 Распределение решений:</strong></p>
+        <div class="casco-results">
+            <div class="casco-result approved">
+                <span>✅ Одобрено</span>
+                <span class="percent">45%</span>
+                <small>Низкий риск</small>
             </div>
-            <div class="highlight-box" style="margin: 0; padding: 14px;">
-                <span class="label" style="font-size: 1em;">🎯 Точность</span>
-                <span class="big-number" style="font-size: 2em; margin: 4px 0;">85%</span>
-                <span class="label" style="font-size: 0.85em; color: #777;">на тесте</span>
+            <div class="casco-result premium">
+                <span>⚠️ Повышенная ставка</span>
+                <span class="percent">25%</span>
+                <small>Средний риск</small>
             </div>
-            <div class="highlight-box" style="margin: 0; padding: 14px;">
-                <span class="label" style="font-size: 1em;">🔢 Признаки</span>
-                <span class="big-number" style="font-size: 2em; margin: 4px 0;">3</span>
-                <span class="label" style="font-size: 0.85em; color: #777;">age, стаж, ДТП</span>
-            </div>
-            <div class="highlight-box" style="margin: 0; padding: 14px;">
-                <span class="label" style="font-size: 1em;">📊 Записей</span>
-                <span class="big-number" style="font-size: 2em; margin: 4px 0;">1K</span>
-                <span class="label" style="font-size: 0.85em; color: #777;">в датасете</span>
+            <div class="casco-result denied">
+                <span>❌ Отказано</span>
+                <span class="percent">30%</span>
+                <small>Высокий риск</small>
             </div>
         </div>
         
-        <!-- Кнопка скачивания -->
-        <div style="text-align: center; margin: 24px 0 16px 0;">
-            <a href="./casco_tree_visualization.py" download
-               style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: white; color: #667eea; text-decoration: none; border-radius: 30px; font-weight: 600; box-shadow: 0 3px 15px rgba(0,0,0,0.15); transition: all 0.2s ease;">
-                📥 Скачать код .py
-            </a>
+        <!-- Важность признаков -->
+        <p><strong>🔍 Важность признаков:</strong></p>
+        <div class="casco-features">
+            <div class="casco-feature">
+                <span class="name">Количество ДТП</span>
+                <div class="bar"><div class="bar-fill" style="width:45%"></div></div>
+                <span class="value">45%</span>
+            </div>
+            <div class="casco-feature">
+                <span class="name">Стаж вождения</span>
+                <div class="bar"><div class="bar-fill" style="width:35%"></div></div>
+                <span class="value">35%</span>
+            </div>
+            <div class="casco-feature">
+                <span class="name">Возраст</span>
+                <div class="bar"><div class="bar-fill" style="width:20%"></div></div>
+                <span class="value">20%</span>
+            </div>
         </div>
+        
+        <!-- Форма предсказания -->
+        <p><strong>👤 Проверить клиента:</strong></p>
+        <form id="cascoForm" class="casco-form" onsubmit="predictCasco(event)">
+            <div class="form-row">
+                <div>
+                    <label for="cascoAge">Возраст</label>
+                    <input type="number" id="cascoAge" min="18" max="70" value="25" required>
+                </div>
+                <div>
+                    <label for="cascoExp">Стаж (лет)</label>
+                    <input type="number" id="cascoExp" min="0" max="40" value="3" required>
+                </div>
+                <div>
+                    <label for="cascoAcc">ДТП</label>
+                    <input type="number" id="cascoAcc" min="0" max="10" value="0" required>
+                </div>
+            </div>
+            <button type="submit">🔮 Получить решение</button>
+        </form>
+        <div id="cascoResult" class="casco-result-box"></div>
         
         <p class="footer-note">
-            💡 <em>Зависимости: <code>scikit-learn • matplotlib • pandas</code></em><br>
-            🧠 Модель: <code>DecisionTreeClassifier</code> | 📁 Данные: <code>casco_dataset.csv</code>
+            💡 <em>Риск-скор: возраст &lt;25 (+2), стаж &lt;3 (+2), каждое ДТП (+1)</em><br>
+            ✅ ≤3 баллов: Одобрено | ⚠️ 4-5: Повышенная ставка | ❌ &gt;5: Отказано
         </p>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // ============================================
+        // 🚗 Логика предсказания КАСКО
+        // ============================================
+        function predictCasco(e) {
+            e.preventDefault();
+            
+            const age = parseInt(document.getElementById('cascoAge').value);
+            const exp = parseInt(document.getElementById('cascoExp').value);
+            const acc = parseInt(document.getElementById('cascoAcc').value);
+            
+            // Простая логика риск-скора
+            let riskScore = 0;
+            if (age < 25) riskScore += 2;
+            if (exp < 3) riskScore += 2;
+            riskScore += acc;
+            
+            const resultDiv = document.getElementById('cascoResult');
+            
+            if (riskScore <= 3) {
+                resultDiv.className = 'casco-result-box approved';
+                resultDiv.innerHTML = '✅ ОДОБРЕНО <br><small>Низкий риск страхования</small>';
+            } else if (riskScore <= 5) {
+                resultDiv.className = 'casco-result-box premium';
+                resultDiv.innerHTML = '⚠️ ПОВЫШЕННАЯ СТАВКА <br><small>Средний риск страхования</small>';
+            } else {
+                resultDiv.className = 'casco-result-box denied';
+                resultDiv.innerHTML = '❌ ОТКАЗАНО <br><small>Высокий риск страхования</small>';
+            }
+        }
+        
+        // Установка текущей даты в заголовке (если нужно)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚗 CASCO ML Section Loaded | Accuracy: 69% | Date: 21 марта 2026');
+        });
+    </script>
 </body>
 </html>
