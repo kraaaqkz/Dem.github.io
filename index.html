@@ -852,3 +852,246 @@ tree.score(X_test, y_test)
     </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гинекология - База данных</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 База данных "Гинекология"</h1>
+        
+        <!-- Схема связей -->
+        <div class="schema-diagram">
+            <div class="entity doctor">
+                <h2>ВРАЧ</h2>
+                <table>
+                    <tr>
+                        <th>ФИО</th>
+                        <th>Специализация</th>
+                        <th>Пол</th>
+                        <th>Стаж</th>
+                        <th>Возраст</th>
+                    </tr>
+                    <tr>
+                        <td>Фролова Анна Антонова</td>
+                        <td>Акушер-гинеколог</td>
+                        <td>женский</td>
+                        <td>20</td>
+                        <td>40 ЛЕТ</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="relationship">1:N</div>
+
+            <div class="entity operation">
+                <h2>ОПЕРАЦИЯ</h2>
+                <table>
+                    <tr>
+                        <th>операция</th>
+                        <th>Дата</th>
+                        <th>Тип</th>
+                        <th>С</th>
+                        <th>ПО</th>
+                    </tr>
+                    <tr>
+                        <td>301</td>
+                        <td>17.05.2026</td>
+                        <td>Миомэктомия</td>
+                        <td>15.00</td>
+                        <td>18.00</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="relationship">1:N</div>
+
+            <div class="entity nurse">
+                <h2>МЕДСЕСТРА</h2>
+                <table>
+                    <tr>
+                        <th>Медсестра</th>
+                        <th>Тип</th>
+                        <th>Стаж</th>
+                        <th>Возраст</th>
+                    </tr>
+                    <tr>
+                        <td>Ли Юлия</td>
+                        <td>ПАЛАТНАЯ МЕДСЕСТРА</td>
+                        <td>5</td>
+                        <td>22</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Детализированные таблицы -->
+        <div class="tables-section">
+            <h2>📋 Детализация таблиц</h2>
+            
+            <div class="table-wrapper">
+                <h3>ВРАЧ (Doctor)</h3>
+                <table class="detailed-table">
+                    <thead>
+                        <tr>
+                            <th>Атрибут</th>
+                            <th>Значение</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ФИО</td>
+                            <td>Фролова Анна Антонова</td>
+                            <td rowspan="5" class="id-cell">931</td>
+                        </tr>
+                        <tr>
+                            <td>Специализация</td>
+                            <td>Акушер-гинеколог</td>
+                        </tr>
+                        <tr>
+                            <td>Пол</td>
+                            <td>женский</td>
+                        </tr>
+                        <tr>
+                            <td>Стаж</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Возраст</td>
+                            <td>40 ЛЕТ</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="foreign-key">FK: 7677</div>
+            </div>
+
+            <div class="table-wrapper">
+                <h3>МЕДСЕСТРА (Nurse)</h3>
+                <table class="detailed-table">
+                    <thead>
+                        <tr>
+                            <th>Атрибут</th>
+                            <th>Значение</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Имя</td>
+                            <td>Ли Юлия</td>
+                            <td rowspan="4" class="id-cell">812</td>
+                        </tr>
+                        <tr>
+                            <td>Стаж</td>
+                            <td>5 лет</td>
+                        </tr>
+                        <tr>
+                            <td>Возраст</td>
+                            <td>22 года</td>
+                        </tr>
+                        <tr>
+                            <td>Тип</td>
+                            <td>ПАЛАТНАЯ МЕДСЕСТРА</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="foreign-key">FK: 2089</div>
+            </div>
+
+            <div class="table-wrapper">
+                <h3>ОПЕРАЦИЯ (Operation)</h3>
+                <table class="detailed-table">
+                    <thead>
+                        <tr>
+                            <th>Атрибут</th>
+                            <th>Значение</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Номер операции</td>
+                            <td>301</td>
+                            <td rowspan="5" class="id-cell">123</td>
+                        </tr>
+                        <tr>
+                            <td>Дата</td>
+                            <td>17.05.2026</td>
+                        </tr>
+                        <tr>
+                            <td>Тип</td>
+                            <td>Миомэктомия</td>
+                        </tr>
+                        <tr>
+                            <td>Время начала</td>
+                            <td>15.00</td>
+                        </tr>
+                        <tr>
+                            <td>Время окончания</td>
+                            <td>18.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="foreign-key">FK: 6723</div>
+            </div>
+        </div>
+
+        <!-- SQL схема -->
+        <div class="sql-section">
+            <h2>💾 SQL Схема базы данных</h2>
+            <pre><code>-- Таблица ВРАЧ
+CREATE TABLE Doctor (
+    doctor_id INT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    specialization VARCHAR(50),
+    gender VARCHAR(10),
+    experience_years INT,
+    age INT
+);
+
+-- Таблица МЕДСЕСТРА
+CREATE TABLE Nurse (
+    nurse_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    nurse_type VARCHAR(50),
+    experience_years INT,
+    age INT
+);
+
+-- Таблица ОПЕРАЦИЯ
+CREATE TABLE Operation (
+    operation_id INT PRIMARY KEY,
+    operation_number VARCHAR(10),
+    operation_date DATE,
+    operation_type VARCHAR(100),
+    start_time TIME,
+    end_time TIME,
+    doctor_id INT,
+    nurse_id INT,
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id),
+    FOREIGN KEY (nurse_id) REFERENCES Nurse(nurse_id)
+);
+
+-- Пример данных
+INSERT INTO Doctor VALUES 
+(931, 'Фролова Анна Антонова', 'Акушер-гинеколог', 'женский', 20, 40);
+
+INSERT INTO Nurse VALUES 
+(812, 'Ли Юлия', 'ПАЛАТНАЯ МЕДСЕСТРА', 5, 22);
+
+INSERT INTO Operation VALUES 
+(123, '301', '2026-05-17', 'Миомэктомия', '15:00', '18:00', 931, 812);</code></pre>
+        </div>
+    </div>
+
+    <footer>
+        <p>База данных "Гинекология" | Создано для GitHub Pages</p>
+    </footer>
+</body>
+</html>
